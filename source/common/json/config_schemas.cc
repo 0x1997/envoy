@@ -812,7 +812,7 @@ const std::string Json::Schema::TOP_LEVEL_CONFIG_SCHEMA(R"EOF(
         "properties" : {
           "type" : {
             "type" : "string",
-            "enum" : ["lightstep"]
+            "enum" : []
           },
           "access_token_file" : {"type" : "string"},
           "config" : {

@@ -196,17 +196,6 @@
   "admin": { "access_log_path": "/dev/null", "port": 10003 },
   "statsd_local_udp_port": 8125,
   "statsd_tcp_cluster_name": "statsd",
-  "tracing": {
-    "http": {
-      "driver": {
-        "type": "lightstep",
-        "access_token_file": "test/config/integration/lightstep_access_token",
-        "config": {
-          "collector_cluster": "lightstep_saas"
-        }
-      }
-    }
-  },
 
   "runtime": {
     "symlink_root": "test/common/runtime/test_data/current",

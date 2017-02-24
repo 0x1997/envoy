@@ -86,28 +86,7 @@ void MainImpl::initializeTracers(const Json::Object& tracing_configuration) {
     std::string type = driver->getString("type");
     log().info(fmt::format("  loading tracing driver: {}", type));
 
-    if (type == "lightstep") {
-      ::Runtime::RandomGenerator& rand = server_.random();
-      std::unique_ptr<lightstep::TracerOptions> opts(new lightstep::TracerOptions());
-      opts->access_token = server_.api().fileReadToEnd(driver->getString("access_token_file"));
-      StringUtil::rtrim(opts->access_token);
-
-      if (server_.localInfo().clusterName().empty()) {
-        throw EnvoyException("cluster name must be defined if LightStep tracing is enabled. See "
-                             "--service-cluster option.");
-      }
-      opts->tracer_attributes["lightstep.component_name"] = server_.localInfo().clusterName();
-      opts->guid_generator = [&rand]() { return rand.random(); };
-
-      Tracing::DriverPtr lightstep_driver(new Tracing::LightStepDriver(
-          *driver->getObject("config"), *cluster_manager_, server_.stats(), server_.threadLocal(),
-          server_.runtime(), std::move(opts)));
-
-      http_tracer_.reset(
-          new Tracing::HttpTracerImpl(std::move(lightstep_driver), server_.localInfo()));
-    } else {
-      throw EnvoyException(fmt::format("unsupported driver type: '{}'", type));
-    }
+    throw EnvoyException(fmt::format("unsupported driver type: '{}'", type));
   }
 }
 

@@ -43,10 +43,6 @@ set(ENVOY_CARES_INCLUDE_DIR "" CACHE FILEPATH "location of c-ares includes")
 set(ENVOY_PROTOBUF_INCLUDE_DIR "" CACHE FILEPATH "location of protobuf includes")
 set(ENVOY_PROTOBUF_PROTOC "" CACHE FILEPATH "location of protoc")
 
-# http://lightstep.com/
-# Last tested with lightstep-tracer-cpp-0.33
-set(ENVOY_LIGHTSTEP_TRACER_INCLUDE_DIR "" CACHE FILEPATH "location of lighstep tracer includes")
-
 # https://github.com/miloyip/rapidjson
 # Last tested with 1.1.0
 set(ENVOY_RAPIDJSON_INCLUDE_DIR "" CACHE FILEPATH "location of rapidjson includes")
